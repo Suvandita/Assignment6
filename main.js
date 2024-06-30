@@ -40,23 +40,16 @@ function displayQuestion(data) {
     for (let i = 0; i < choicesList.length; i++) {
         _choices[i].innerHTML = `${choicesList[i]}`;
         _choices_radio[i].checked = false;
-        _choices_radio[i].disabled = false;
     }
 
     _askedCount.textContent = askedCount;
     _correctScore.textContent = correctScore;
 
     startTimer(30);
-    addChoiceListeners();
+    
 }
 
-function addChoiceListeners() {
-    _choices_radio.forEach(choice => {
-        choice.addEventListener('change', () => {
-            _nextBtn.style.cursor='pointer';
-        });
-    });
-}
+
 
 function checkAnswer() {
     clearInterval(timerInterval);
@@ -90,8 +83,7 @@ function checkAnswer() {
     }
 }
 
-function startTimer(duration) {
-    let time = duration;
+function startTimer(time) {
     _timer.textContent = formatTime(time);
     timerInterval = setInterval(() => {
         time--;
