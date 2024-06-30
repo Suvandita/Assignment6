@@ -103,8 +103,6 @@ function startTimer(duration) {
     }, 1000);
 }
 
-function formatTime(time) {
-    let minutes = Math.floor(time / 60);
-    let seconds = time % 60;
-    return `${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+function formatTime(seconds) {
+    return `00:${seconds < 10 ? '0' : ''}${seconds}`;
 }
