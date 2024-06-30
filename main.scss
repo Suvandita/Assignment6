@@ -1,0 +1,142 @@
+$btn_color: rgb(121, 77, 77);
+$card_color:rgb(96, 57, 57);
+@mixin btn_prop{
+    color:white;
+    padding: 20px;
+    position:absolute;
+    z-index: 1;
+    border-radius: 20px;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.main{
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    scrollbar-width: none;
+    &__background{
+        position: absolute;
+        z-index: 0;
+        height: 100%;
+        width: 100%;
+        
+        display: flex;
+        &1,&2{
+            object-fit: fill;
+            width: 50%;
+        }
+        
+    }
+    &__container{
+        display: block;
+        position:absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+        z-index: 1;
+        background-color: $card_color;
+        color: white;
+        width: 50%;
+        height: 80%;
+
+        &__quiz{
+            padding: 2%;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            &__question{
+                height: 100%;
+                width:100%;
+                .question_no{
+                    font-size: 15px;
+                    color:rgb(255, 255, 255,0.5);
+                    margin-bottom: 1%;
+                }
+                .question{
+                    font-size: 21px;
+                    border:5px solid $btn_color;
+                    padding:10% 2%;
+                    height:50%;
+                    input{
+                        width: 100%;
+                    }
+                }
+
+            }
+
+            
+            .choices{
+                &__choice{
+                    background-color: $btn_color;
+                    width: 100%;
+                    color: white;
+                    padding:3% 3%;
+                    margin: 2% 0;
+                    border-radius:20px;
+                    list-style-type: none;
+                    input{
+                        margin-right: 1%;
+                    }
+                }
+            }
+        }
+    }
+    &__result{
+        display: none;
+        position:absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+        z-index: 1;
+        background-color: $card_color;
+        width: 50%;
+        height: 80%;
+        color:white;
+        text-align: center;
+        
+        &__text{
+            display: flex;
+            flex-direction: column;
+            justify-content:center;
+            height: 100%;
+            &__thanks{
+                font-size: 21px;
+            }
+            &__score{
+                font-size: 15px;
+                font-style: italic;
+            }
+        }
+        
+    }
+    
+       
+    
+    &__score{
+        background-color: $btn_color;
+        @include btn_prop();
+        top:5%;
+        right:5%;
+    }
+    &__timer{
+        background-color: $btn_color;
+        @include btn_prop();
+        top:5%;
+        left:5%;
+    }
+    &__next{
+        background-color: $btn_color;
+        @include btn_prop();
+        bottom:5%;
+        right:5%;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+
+}   

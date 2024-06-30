@@ -1,0 +1,133 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  scrollbar-width: none;
+}
+.main__background {
+  position: absolute;
+  z-index: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+.main__background1, .main__background2 {
+  -o-object-fit: fill;
+     object-fit: fill;
+  width: 50%;
+}
+.main__container {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  background-color: rgb(96, 57, 57);
+  color: white;
+  width: 50%;
+  height: 80%;
+}
+.main__container__quiz {
+  padding: 2%;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.main__container__quiz__question {
+  height: 100%;
+  width: 100%;
+}
+.main__container__quiz__question .question_no {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 1%;
+}
+.main__container__quiz__question .question {
+  font-size: 21px;
+  border: 5px solid rgb(121, 77, 77);
+  padding: 10% 2%;
+  height: 50%;
+}
+.main__container__quiz__question .question input {
+  width: 100%;
+}
+.main__container__quiz .choices__choice {
+  background-color: rgb(121, 77, 77);
+  width: 100%;
+  color: white;
+  padding: 3% 3%;
+  margin: 2% 0;
+  border-radius: 20px;
+  list-style-type: none;
+}
+.main__container__quiz .choices__choice input {
+  margin-right: 1%;
+}
+.main__result {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  background-color: rgb(96, 57, 57);
+  width: 50%;
+  height: 80%;
+  color: white;
+  text-align: center;
+}
+.main__result__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+.main__result__text__thanks {
+  font-size: 21px;
+}
+.main__result__text__score {
+  font-size: 15px;
+  font-style: italic;
+}
+.main__score {
+  background-color: rgb(121, 77, 77);
+  color: white;
+  padding: 20px;
+  position: absolute;
+  z-index: 1;
+  border-radius: 20px;
+  top: 5%;
+  right: 5%;
+}
+.main__timer {
+  background-color: rgb(121, 77, 77);
+  color: white;
+  padding: 20px;
+  position: absolute;
+  z-index: 1;
+  border-radius: 20px;
+  top: 5%;
+  left: 5%;
+}
+.main__next {
+  background-color: rgb(121, 77, 77);
+  color: white;
+  padding: 20px;
+  position: absolute;
+  z-index: 1;
+  border-radius: 20px;
+  bottom: 5%;
+  right: 5%;
+}
+.main__next:hover {
+  cursor: pointer;
+}/*# sourceMappingURL=main.css.map */

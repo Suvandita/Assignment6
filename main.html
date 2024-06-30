@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Quiz</title>
+</head>
+<body>
+    <div class="main">
+        <div class="main__background">
+                <img src="images/background1.jpeg" class="main__background1">
+                <img src="images/background2.jpeg" class="main__background2">
+        </div>
+        
+        <div class="main__container">
+            <div class="main__container__quiz">
+                <div class="main__container__quiz__question">
+                    <p class="question_no">Question No. <span class="askedCount"></span></p>
+                    <p class="question">What is the answer ans ans</p>
+                </div>
+                
+                <ul class="choices">
+                    <li class="choices__choice"  data-number="1"><input type="radio" name="choice" id="choice1"><label for="choice1" class="choice">Choice 1</label></li>
+                    <li class="choices__choice"  data-number="2"><input type="radio" name="choice" id="choice2"><label for="choice2" class="choice">Choice 2</label></li>
+                    <li class="choices__choice"  data-number="3"><input type="radio" name="choice" id="choice3"><label for="choice3" class="choice">Choice 3</label></li>
+                    <li class="choices__choice"  data-number="4"><input type="radio" name="choice" id="choice4"><label for="choice4" class="choice">Choice 4</label></li>
+                    
+                </ul>
+
+            </div>
+
+        </div>
+        <div class="main__result">
+            <div class="main__result__text">
+                <div class="main__result__text__thanks">Thanks for giving the quiz!!</div>
+                <div class="main__result__text__score">You got <span class="totalScore"></span>/10 score.</div>
+            </div>
+            
+        </div>
+        <div class="main__score">Score:<span class="correctScore">0</span></div>
+        <div class="main__timer">00:30</div>
+      
+        <div class="main__next">Next</div>
+
+        
+    </div>
+    
+</body>
+<script src="main.js"></script>
+</html>
