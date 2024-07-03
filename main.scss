@@ -22,7 +22,6 @@ $card_color:rgb(96, 57, 57);
         z-index: 0;
         height: 100%;
         width: 100%;
-        
         display: flex;
         &1,&2{
             object-fit: fill;
@@ -36,48 +35,58 @@ $card_color:rgb(96, 57, 57);
         top:50%;
         left:50%;
         transform: translate(-50%,-50%);
-        z-index: 1;
+        z-index: 0;
         background-color: $card_color;
         color: white;
         width: 50%;
         height: 80%;
 
         &__quiz{
-            padding: 2%;
+            padding: 10px;
             height: 100%;
-            width: 100%;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             &__question{
-                height: 100%;
-                width:100%;
+                height: 50%;
                 .question_no{
                     font-size: 15px;
                     color:rgb(255, 255, 255,0.5);
-                    margin-bottom: 1%;
+                    margin:0 0 10px;
                 }
                 .question{
                     font-size: 21px;
                     border:5px solid $btn_color;
-                    padding:10% 2%;
-                    height:50%;
+                    height: 80%;
+                    display: flex;
+                    align-items: center;
+                    text-align: center;
+                    padding: 10px;
+                    
                 }
 
             }
-
-            
             .choices{
                 &__choice{
                     background-color: $btn_color;
-                    width: 100%;
                     color: white;
-                    padding:3% 3%;
-                    margin: 2% 0;
+                    margin: 10px 0 0;
                     border-radius:20px;
                     list-style-type: none;
+                    position: relative;
                     input{
-                        margin-right: 1%;
+                        position: absolute;
+                        padding: 0;
+                        left:10px;
+                        top:50%;
+                        transform:translateY(-50%) ;
+                    }
+                    label{
+                        display: block;
+                        padding: 15px 30px;
+                        &:hover{
+                            cursor: pointer;
+                        }
                     }
                 }
             }
@@ -136,7 +145,7 @@ $card_color:rgb(96, 57, 57);
     }
 
 }   
-@media screen and (max-width:500px) {
+@media screen and (max-width:700px) {
     .main{
         &__score,&__timer,&__next{
             font-size: 15px;
@@ -145,25 +154,74 @@ $card_color:rgb(96, 57, 57);
         }
         &__container{
             height:70%;
+            width: 40%;
             &__quiz{
                 &__question{
-
+                    .question_no{
+                        font-size: 12px;
+                        margin:0 0 5px;
+                    }
                     .question{
-                        font-size:18px;
+                        font-size:15px;
                         padding: 5px;
                     }
                 }
-                .choices{
-                    display: flex;
-                    flex-direction: column;
-                    gap:5px;   
-                    font-size: 14px;                
+                .choices{ 
+                    font-size: 12px;  
+                    input{
+                        left:5px;
+                    }
+                    label{
+                        margin:0 0 5px;
+                        padding: 12px 5px 12px 20px;
+                    }              
                 }
             }
         }
         &__result{
             height:70%;
             &__text{
+                padding: 5px;
+                &__thanks{
+                    font-size:21px;
+                }
+                &__score{
+                    font-size:15px;
+                }
+            }
+           
+        }
+    }
+}
+@media screen and  (max-height:600px) {
+    .main{
+        &__score,&__timer,&__next{
+            font-size: 15px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        &__container{
+            width: 70%;
+            &__quiz{
+                &__question{
+                    .question{
+                        font-size:15px;
+                        padding: 5px;
+                    }
+                }
+                .choices{
+                    margin:5px 0;   
+                    font-size: 12px;  
+                    label{
+                        padding: 10px 5px 10px 25px;
+                    }              
+                }
+            }
+        }
+        &__result{
+            width:70%;
+            &__text{
+                padding: 5px;
                 &__thanks{
                     font-size:21px;
                 }
