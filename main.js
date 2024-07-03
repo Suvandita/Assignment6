@@ -46,7 +46,6 @@ function displayQuestion(data) {
     _correctScore.textContent = correctScore;
 
     startTimer(30);
-    
 }
 
 
