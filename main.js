@@ -7,7 +7,7 @@ const _askedCount = document.querySelector(".askedCount");
 const _timer = document.querySelector(".main__timer");
 
 let correctAnswer = "", correctScore = 0, askedCount = 1, totalQuestion = 10, timerInterval;
-
+let objarray = [];
 function eventListeners() {
     _nextBtn.addEventListener('click', checkAnswer);
 }
@@ -25,8 +25,8 @@ async function loadQuestion() {
     const APIUrl = 'https://opentdb.com/api.php?amount=10&category=32&difficulty=easy&type=multiple';
     const result = await fetch(APIUrl);
     const data = await result.json();
-
-    displayQuestion(data.results[askedCount-1]);
+    objarray=data.results;
+    displayQuestion(objarray[askedCount-1]);
 }
 
 function displayQuestion(data) {
@@ -59,14 +59,11 @@ function checkAnswer() {
         if (selectedAnswer === correctAnswer) {
             correctScore++;
         }
-        askedCount++;
     }
-    else{
         askedCount++;
-    }
     
     if (askedCount <= totalQuestion) {
-        loadQuestion();
+        displayQuestion(objarray[askedCount-1]);
     } else {
         document.querySelector(".main__container").style.display='none';
         document.querySelector(".main__result").style.display='block';

@@ -31,11 +31,12 @@
   z-index: 0;
   background-color: rgb(96, 57, 57);
   color: white;
-  width: 50%;
+  width: 40%;
   height: 80%;
+  border-radius: 10px;
 }
 .main__container__quiz {
-  padding: 10px;
+  padding: 20px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -66,12 +67,18 @@
   list-style-type: none;
   position: relative;
 }
+.main__container__quiz .choices__choice:hover {
+  border: 1px solid gold;
+}
 .main__container__quiz .choices__choice input {
   position: absolute;
   padding: 0;
   left: 10px;
   top: 50%;
   transform: translateY(-50%);
+}
+.main__container__quiz .choices__choice input:hover {
+  cursor: pointer;
 }
 .main__container__quiz .choices__choice label {
   display: block;
@@ -88,7 +95,7 @@
   transform: translate(-50%, -50%);
   z-index: 1;
   background-color: rgb(96, 57, 57);
-  width: 50%;
+  width: 40%;
   height: 80%;
   color: white;
   text-align: center;
@@ -139,9 +146,22 @@
 .main__next:hover {
   cursor: pointer;
 }
+.main__prev {
+  background-color: rgb(121, 77, 77);
+  color: white;
+  padding: 20px;
+  position: absolute;
+  z-index: 1;
+  border-radius: 20px;
+  bottom: 5%;
+  left: 5%;
+}
+.main__prev:hover {
+  cursor: pointer;
+}
 
 @media screen and (max-width: 700px) {
-  .main__score, .main__timer, .main__next {
+  .main__score, .main__timer, .main__next, .main__prev {
     font-size: 15px;
     padding: 10px;
     border-radius: 10px;
@@ -182,7 +202,7 @@
   }
 }
 @media screen and (max-height: 600px) {
-  .main__score, .main__timer, .main__next {
+  .main__score, .main__timer, .main__next, .main__prev {
     font-size: 15px;
     padding: 10px;
     border-radius: 10px;
