@@ -218,7 +218,7 @@ $card_color:rgb(96, 57, 57);
         }
     }
 }
-@media screen and  (max-height:700px) {
+@media screen and  (max-height:600px) {
     .main{
         &__score,&__timer,&__next,&__prev{
             font-size: 15px;
