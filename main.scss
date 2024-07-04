@@ -116,6 +116,7 @@ $card_color:rgb(96, 57, 57);
         background-color: $card_color;
         width: 40%;
         height: 80%;
+        border-radius: 10px;
         color:white;
         text-align: center;
         
@@ -197,7 +198,7 @@ $card_color:rgb(96, 57, 57);
                     }
                     label{
                         margin:0 0 5px;
-                        padding: 12px 5px 12px 25px;
+                        padding: 5px 5px 5px 25px;
                     }              
                 }
             }
@@ -217,7 +218,7 @@ $card_color:rgb(96, 57, 57);
         }
     }
 }
-@media screen and  (max-height:600px) {
+@media screen and  (max-height:700px) {
     .main{
         &__score,&__timer,&__next,&__prev{
             font-size: 15px;
@@ -235,13 +236,18 @@ $card_color:rgb(96, 57, 57);
                 }
                 .choices{
                     margin:5px 0;   
-                    font-size: 12px;  
-                    input{
-                        left: 5px;
-                    }
-                    label{
-                        padding: 12px 5px 12px 25px;
-                    }              
+                    font-size: 12px; 
+                    &__choice{
+                        margin:5px 0 0;
+                        input{
+                            left: 5px;
+                        }
+                        label{
+                            padding: 5px 5px 5px 25px;
+                        } 
+
+                    } 
+                                 
                 }
             }
         }
@@ -284,4 +290,24 @@ $card_color:rgb(96, 57, 57);
         }
     }
         
+}
+@media screen and (min-height:700px) and (min-width:700px){
+    .main{
+        &__container{
+            &__quiz{
+                .choices{ 
+                    &__choice{
+                        
+                        input{
+                            left: 10px;
+                        }
+                        label{
+                            padding: 20px 5px 20px 30px;
+                        }  
+                    }  
+                                
+                }
+            }
+        }
+    }
 }

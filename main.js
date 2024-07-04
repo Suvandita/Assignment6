@@ -29,11 +29,8 @@ function eventListeners() {
 
 function previousQuestion() {
     clearInterval(timerInterval);
-    if (askedCount > 1) {
-        askedCount--;
-
-        displayQuestion(objarray[askedCount - 1]);
-    }
+    askedCount--;
+    displayQuestion(objarray[askedCount - 1]);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
