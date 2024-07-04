@@ -14,6 +14,17 @@ let objarray = [];
 function eventListeners() {
     _nextBtn.addEventListener('click', checkAnswer);
     _prevBtn.addEventListener('click', previousQuestion);
+    _choice_select.forEach((j)=>{
+        j.addEventListener("click",function (){
+            j.style.backgroundColor='rgb(192,133,133)';
+            _choice_select.forEach((k)=>{
+                if(k!=j){
+                    k.style.backgroundColor='rgb(121, 77, 77)';
+                }
+            })
+        })
+    })
+    
 }
 
 function previousQuestion() {
@@ -59,6 +70,7 @@ function displayQuestion(data) {
         for (let i = 0; i < choicesList.length; i++) {
             if (_choices[i].textContent === selectedChoice) {
                 _choices_radio[i].checked = true;
+                _choice_select[i].style.backgroundColor='rgb(192 133 133)';
             }
         }
     }

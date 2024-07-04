@@ -76,6 +76,7 @@
   left: 10px;
   top: 50%;
   transform: translateY(-50%);
+  accent-color: rgb(192, 133, 133);
 }
 .main__container__quiz .choices__choice input:hover {
   cursor: pointer;
