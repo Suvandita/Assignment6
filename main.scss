@@ -157,6 +157,7 @@ $card_color:rgb(96, 57, 57);
         }
     }
     &__prev{
+        display: none;
         background-color: $btn_color;
         @include btn_prop();
         bottom:5%;

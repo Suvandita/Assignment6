@@ -147,6 +147,7 @@
   cursor: pointer;
 }
 .main__prev {
+  display: none;
   background-color: rgb(121, 77, 77);
   color: white;
   padding: 20px;

@@ -65,6 +65,12 @@ function displayQuestion(data) {
 
     _askedCount.textContent = askedCount;
     _correctScore.textContent = correctScore;
+    if(askedCount>1){
+        _prevBtn.style.display='block';
+    }
+    else{
+        _prevBtn.style.display='none';
+    }
 
     startTimer(30);
 }
