@@ -3,30 +3,41 @@ const _choices = document.querySelectorAll(".choice");
 const _choices_radio = document.querySelectorAll("input[name='choice']");
 const _correctScore = document.querySelector(".correctScore");
 const _nextBtn = document.querySelector(".main__next");
+const _prevBtn = document.querySelector(".main__prev");
 const _askedCount = document.querySelector(".askedCount");
 const _timer = document.querySelector(".main__timer");
+const _choice_select = document.querySelectorAll(".choices__choice");
 
 let correctAnswer = "", correctScore = 0, askedCount = 1, totalQuestion = 10, timerInterval;
 let objarray = [];
+
 function eventListeners() {
     _nextBtn.addEventListener('click', checkAnswer);
+    _prevBtn.addEventListener('click', previousQuestion);
 }
 
+function previousQuestion() {
+    clearInterval(timerInterval);
+    if (askedCount > 1) {
+        askedCount--;
+
+        displayQuestion(objarray[askedCount - 1]);
+    }
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     _askedCount.textContent = 1;
     _correctScore.textContent = 0;
     loadQuestion();
     eventListeners();
-    
 });
 
 async function loadQuestion() {
     const APIUrl = 'https://opentdb.com/api.php?amount=10&category=32&difficulty=easy&type=multiple';
     const result = await fetch(APIUrl);
     const data = await result.json();
-    objarray=data.results;
-    displayQuestion(objarray[askedCount-1]);
+    objarray = data.results;
+    displayQuestion(objarray[askedCount - 1]);
 }
 
 function displayQuestion(data) {
@@ -40,6 +51,16 @@ function displayQuestion(data) {
     for (let i = 0; i < choicesList.length; i++) {
         _choices[i].innerHTML = `${choicesList[i]}`;
         _choices_radio[i].checked = false;
+        _choices_radio[i].parentElement.style.backgroundColor = ''; 
+    }
+
+    let selectedChoice = objarray[askedCount - 1].selectedAnswer;
+    if (selectedChoice) {
+        for (let i = 0; i < choicesList.length; i++) {
+            if (_choices[i].textContent === selectedChoice) {
+                _choices_radio[i].checked = true;
+            }
+        }
     }
 
     _askedCount.textContent = askedCount;
@@ -48,34 +69,40 @@ function displayQuestion(data) {
     startTimer(30);
 }
 
-
-
 function checkAnswer() {
     clearInterval(timerInterval);
 
     let selectedChoice = document.querySelector('input[name="choice"]:checked');
     if (selectedChoice) {
+        let previousAnswer = objarray[askedCount - 1].selectedAnswer;
         let selectedAnswer = selectedChoice.nextElementSibling.textContent;
-        if (selectedAnswer === correctAnswer) {
-            correctScore++;
+        objarray[askedCount - 1].selectedAnswer = selectedAnswer;
+
+        if (previousAnswer !== selectedAnswer) {
+            if (previousAnswer === correctAnswer) {
+                correctScore--;
+            }
+            if (selectedAnswer === correctAnswer) {
+                correctScore++;
+            }
         }
     }
-        askedCount++;
-    
+
+    askedCount++;
+
     if (askedCount <= totalQuestion) {
-        displayQuestion(objarray[askedCount-1]);
+        displayQuestion(objarray[askedCount - 1]);
     } else {
-        document.querySelector(".main__container").style.display='none';
-        document.querySelector(".main__result").style.display='block';
-        document.querySelector(".totalScore").textContent=correctScore;
-        _correctScore.textContent=0;
-        _timer.textContent='00:00';
-        _nextBtn.textContent='Reload';
-        _nextBtn.addEventListener('click',()=>{
+        document.querySelector(".main__container").style.display = 'none';
+        document.querySelector(".main__result").style.display = 'block';
+        document.querySelector(".totalScore").textContent = correctScore;
+        _correctScore.textContent = 0;
+        _prevBtn.style.display='none';
+        _timer.textContent = '00:00';
+        _nextBtn.textContent = 'Reload';
+        _nextBtn.addEventListener('click', () => {
             window.location.reload();
-        })
-
-
+        });
     }
 }
 

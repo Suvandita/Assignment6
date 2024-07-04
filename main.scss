@@ -65,6 +65,7 @@ $card_color:rgb(96, 57, 57);
                     padding: 10px;
                     
                 }
+            
 
             }
             .choices{
@@ -78,6 +79,7 @@ $card_color:rgb(96, 57, 57);
                     &:hover{
                         border:1px solid gold;
                     }
+                    
                     input{
                         position: absolute;
                         padding: 0;
@@ -87,6 +89,7 @@ $card_color:rgb(96, 57, 57);
                         &:hover{
                             cursor: pointer;
                         }
+                        
                         
                     }
                     label{
@@ -164,7 +167,7 @@ $card_color:rgb(96, 57, 57);
     }
 
 }   
-@media screen and (max-width:700px) {
+@media screen and (max-width:600px) {
     .main{
         &__score,&__timer,&__next,&__prev{
             font-size: 15px;
@@ -192,7 +195,7 @@ $card_color:rgb(96, 57, 57);
                     }
                     label{
                         margin:0 0 5px;
-                        padding: 12px 5px 12px 20px;
+                        padding: 12px 5px 12px 25px;
                     }              
                 }
             }
@@ -220,7 +223,7 @@ $card_color:rgb(96, 57, 57);
             border-radius: 10px;
         }
         &__container{
-            width: 70%;
+            width: 60%;
             &__quiz{
                 &__question{
                     .question{
@@ -231,14 +234,17 @@ $card_color:rgb(96, 57, 57);
                 .choices{
                     margin:5px 0;   
                     font-size: 12px;  
+                    input{
+                        left: 5px;
+                    }
                     label{
-                        padding: 10px 5px 10px 25px;
+                        padding: 12px 5px 12px 25px;
                     }              
                 }
             }
         }
         &__result{
-            width:70%;
+            width:60%;
             &__text{
                 padding: 5px;
                 &__thanks{
@@ -251,4 +257,29 @@ $card_color:rgb(96, 57, 57);
            
         }
     }
+}
+
+@media screen and  (max-height:600px) and (max-width:600px) {
+    .main{
+        &__container{
+            &__quiz{
+                    &__question{
+                        .question{
+                            font-size:10px;
+                        }
+                    }
+                .choices{ 
+                    margin:2px 0;  
+                    input{
+                        left: 5px;
+                    }
+                    label{
+                        font-size:10px;
+                        padding: 2px 5px 2px 25px;
+                    }              
+                }
+            }
+        }
+    }
+        
 }
