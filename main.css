@@ -204,7 +204,7 @@
     font-size: 15px;
   }
 }
-@media screen and (max-height: 700px) {
+@media screen and (max-height: 600px) {
   .main__score, .main__timer, .main__next, .main__prev {
     font-size: 15px;
     padding: 10px;
