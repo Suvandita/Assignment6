@@ -311,8 +311,7 @@ $card_color:rgb(96, 57, 57);
         }
     }
 }
-*/
-$btn_color: rgb(121, 77, 77);
+*/$btn_color: rgb(121, 77, 77);
 $card_color: rgb(96, 57, 57);
 
 @mixin btn_prop {
@@ -468,23 +467,23 @@ $card_color: rgb(96, 57, 57);
         background-color: $btn_color;
         @include btn_prop();
         font-size: clamp(12px, 3vw, 16px);
-        padding: clamp(10px, 2vw, 20px);
+        padding: clamp(8px, 2vw, 20px);
         border-radius: clamp(10px, 2vw, 20px);
     }
 
     &__score {
-        top: 5%;
-        right: 5%;
+        top: 2%;
+        right: 2%;
     }
 
     &__timer {
-        top: 5%;
-        left: 5%;
+        top: 2%;
+        left: 2%;
     }
 
     &__next {
-        bottom: 5%;
-        right: 5%;
+        bottom: 2%;
+        right: 2%;
         &:hover {
             cursor: pointer;
         }
@@ -492,10 +491,56 @@ $card_color: rgb(96, 57, 57);
 
     &__prev {
         display: none;
-        bottom: 5%;
-        left: 5%;
+        bottom: 2%;
+        left: 2%;
         &:hover {
             cursor: pointer;
+        }
+    }
+}
+
+// For mobile devices
+@media screen and (max-width: 480px) {
+    .main {
+        &__container, &__result {
+            width: 95%;
+            height: 90%;
+            
+            &__quiz {
+                padding: 15px;
+
+                &__question {
+                    height: 45%;
+                    
+                    .question {
+                        font-size: 16px;
+                        padding: 12px;
+                        height: 85%;
+                    }
+                }
+
+                .choices {
+                    margin-top: 15px;
+                    
+                    &__choice {
+                        margin: 8px 0;
+                        
+                        label {
+                            padding: 12px 12px 12px 30px;
+                            font-size: 14px;
+                        }
+                        
+                        input {
+                            left: 8px;
+                        }
+                    }
+                }
+            }
+        }
+
+        &__score, &__timer, &__next, &__prev {
+            padding: 8px 12px;
+            font-size: 14px;
         }
     }
 }
@@ -504,37 +549,54 @@ $card_color: rgb(96, 57, 57);
 @media screen and (max-width: 320px) {
     .main {
         &__container, &__result {
-            width: 95%;
-            height: 85%;
+            width: 98%;
+            height: 95%;
         }
 
         &__container__quiz {
             padding: 10px;
 
-            &__question .question {
-                font-size: 12px;
-                padding: 5px;
+            &__question {
+                .question {
+                    font-size: 14px;
+                    padding: 8px;
+                }
             }
 
-            .choices__choice label {
-                padding: 8px 8px 8px 25px;
-                font-size: 11px;
+            .choices__choice {
+                margin: 6px 0;
+                
+                label {
+                    padding: 10px 10px 10px 25px;
+                    font-size: 12px;
+                }
             }
+        }
+
+        &__score, &__timer, &__next, &__prev {
+            padding: 6px 10px;
+            font-size: 12px;
         }
     }
 }
 
-// For landscape orientation
+// For landscape orientation on mobile
 @media screen and (max-height: 500px) {
     .main {
         &__container, &__result {
-            height: 90vh;
-            width: 80%;
+            height: 95vh;
+            width: 85%;
         }
 
         &__container__quiz {
             &__question {
                 height: 40%;
+            }
+
+            .choices {
+                &__choice {
+                    margin: 5px 0;
+                }
             }
         }
     }
