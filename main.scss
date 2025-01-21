@@ -1,4 +1,4 @@
-$btn_color: rgb(121, 77, 77);
+/*$btn_color: rgb(121, 77, 77);
 $card_color:rgb(96, 57, 57);
 @mixin btn_prop{
     color:white;
@@ -307,6 +307,234 @@ $card_color:rgb(96, 57, 57);
                     }  
                                 
                 }
+            }
+        }
+    }
+}
+*/
+$btn_color: rgb(121, 77, 77);
+$card_color: rgb(96, 57, 57);
+
+@mixin btn_prop {
+    color: white;
+    padding: 20px;
+    position: absolute;
+    z-index: 1;
+    border-radius: 20px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    scrollbar-width: none;
+    overflow-x: hidden;
+
+    &__background {
+        position: absolute;
+        z-index: 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+
+        &1, &2 {
+            object-fit: cover;
+            width: 50%;
+            height: 100%;
+        }
+    }
+
+    &__container {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 0;
+        background-color: $card_color;
+        color: white;
+        width: 90%;
+        max-width: 600px;
+        height: 80%;
+        border-radius: 10px;
+
+        &__quiz {
+            padding: 20px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            &__question {
+                height: 50%;
+                
+                .question_no {
+                    font-size: clamp(12px, 3vw, 15px);
+                    color: rgba(255, 255, 255, 0.5);
+                    margin: 0 0 10px;
+                }
+
+                .question {
+                    font-size: clamp(14px, 4vw, 21px);
+                    border: 5px solid $btn_color;
+                    height: 80%;
+                    display: flex;
+                    align-items: center;
+                    text-align: center;
+                    padding: clamp(10px, 3vw, 20px);
+                }
+            }
+
+            .choices {
+                &__choice {
+                    background-color: $btn_color;
+                    color: white;
+                    margin: 10px 0 0;
+                    border-radius: 20px;
+                    list-style-type: none;
+                    position: relative;
+
+                    &:hover {
+                        border: 1px solid gold;
+                    }
+
+                    input {
+                        position: absolute;
+                        padding: 0;
+                        left: clamp(5px, 2vw, 10px);
+                        top: 50%;
+                        transform: translateY(-50%);
+                        accent-color: rgb(192 133 133);
+
+                        &:hover {
+                            cursor: pointer;
+                        }
+                    }
+
+                    label {
+                        display: block;
+                        padding: clamp(10px, 3vw, 20px) clamp(25px, 5vw, 30px);
+                        font-size: clamp(12px, 3vw, 16px);
+
+                        &:hover {
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &__result {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+        background-color: $card_color;
+        width: 90%;
+        max-width: 600px;
+        height: 80%;
+        border-radius: 10px;
+        color: white;
+        text-align: center;
+
+        &__text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+            padding: clamp(10px, 3vw, 20px);
+
+            &__thanks {
+                font-size: clamp(16px, 5vw, 21px);
+            }
+
+            &__score {
+                font-size: clamp(12px, 4vw, 15px);
+                font-style: italic;
+            }
+        }
+    }
+
+    &__score, &__timer, &__next, &__prev {
+        background-color: $btn_color;
+        @include btn_prop();
+        font-size: clamp(12px, 3vw, 16px);
+        padding: clamp(10px, 2vw, 20px);
+        border-radius: clamp(10px, 2vw, 20px);
+    }
+
+    &__score {
+        top: 5%;
+        right: 5%;
+    }
+
+    &__timer {
+        top: 5%;
+        left: 5%;
+    }
+
+    &__next {
+        bottom: 5%;
+        right: 5%;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &__prev {
+        display: none;
+        bottom: 5%;
+        left: 5%;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+// For very small devices
+@media screen and (max-width: 320px) {
+    .main {
+        &__container, &__result {
+            width: 95%;
+            height: 85%;
+        }
+
+        &__container__quiz {
+            padding: 10px;
+
+            &__question .question {
+                font-size: 12px;
+                padding: 5px;
+            }
+
+            .choices__choice label {
+                padding: 8px 8px 8px 25px;
+                font-size: 11px;
+            }
+        }
+    }
+}
+
+// For landscape orientation
+@media screen and (max-height: 500px) {
+    .main {
+        &__container, &__result {
+            height: 90vh;
+            width: 80%;
+        }
+
+        &__container__quiz {
+            &__question {
+                height: 40%;
             }
         }
     }
